@@ -15,3 +15,7 @@ On `November 3, 2024`, these version combinations ran successfully in Android St
 1. **Install the Local Development Tools**: Ideally, use the versions mentioned above as they are known to work. Follow the instructions here: [Flutter Installation](https://docs.flutter.dev/get-started/install)
 2. **Clone the Repository**: Clone this git repository locally, `main` branch.
 4. **Install Project Dependencies**: Navigate to the project directory in the terminal and run:
+   flutter pub get
+
+1. **to run makefile**: choose a command and type in the command that you want:
+   example : make clean
