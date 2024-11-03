@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_instance/get_instance.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:get/get.dart';
 import 'package:open_weather/services/route/route.dart';
 import 'package:open_weather/ui/splash/splash_controller.dart';
+import 'package:open_weather/ui/weather_screen/weather_screen_controller.dart';
+
+import 'services/weather_service/weather_services.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
   await dotenv.load(fileName: ".env");
+
+  await Get.putAsync(() => WeatherService().init());
+
   runApp(const MyApp());
 }
 
@@ -19,6 +22,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    FocusScope.of(context).unfocus();
+
     return ScreenUtilInit(
       designSize: const Size(375, 812),
       ensureScreenSize: true,
@@ -39,5 +44,6 @@ class InitialBinding extends Bindings {
   @override
   void dependencies() {
     Get.put(SplashController());
+    Get.put(WeatherScreenController());
   }
 }

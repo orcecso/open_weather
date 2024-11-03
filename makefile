@@ -9,3 +9,8 @@ clean:
 	cd ios && pod update && cd ..
 	dart run build_runner clean
 	dart run build_runner build --delete-conflicting-outputs
+
+build_apk:
+	fvm flutter clean
+	fvm flutter pub get
+	fvm flutter build apk --release -t lib/main.dart
