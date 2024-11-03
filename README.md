@@ -19,3 +19,4 @@ On `November 3, 2024`, these version combinations ran successfully in Android St
 
 1. **to run makefile**: choose a command and type in the command that you want:
    example : make clean
+2. **Make sure you have fvm setup on your machine to run this commands**
